@@ -1,0 +1,156 @@
+/* Custom styles for Voice Recorder */
+
+.record-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    border: 4px solid transparent;
+}
+
+.record-button:hover {
+    transform: scale(1.05);
+}
+
+.record-button.recording {
+    background-color: #dc2626 !important;
+    animation: pulse 2s infinite;
+    border-color: #fca5a5;
+}
+
+.record-button.processing {
+    background-color: #f59e0b !important;
+    cursor: not-allowed;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 20px rgba(239, 68, 68, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+    }
+}
+
+/* Smooth transitions */
+.fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive design improvements */
+@media (max-width: 768px) {
+    .record-button {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .record-button i {
+        font-size: 2rem !important;
+    }
+    
+    .container {
+        padding: 0 1rem;
+    }
+}
+
+/* Audio player custom styling */
+audio {
+    outline: none;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #f8fafc;
+}
+
+/* Loading spinner animation */
+.fa-spinner {
+    animation: fa-spin 2s infinite linear;
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Focus states for accessibility */
+button:focus, select:focus, audio:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Error and success states */
+.error-shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .flex {
+        flex-direction: column;
+    }
+    
+    .flex > * {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .bg-gradient-to-br {
+        background: #ffffff;
+    }
+    
+    .text-gray-600 {
+        color: #000000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .record-button {
+        transition: none;
+    }
+    
+    .record-button.recording {
+        animation: none;
+    }
+    
+    .fa-spinner {
+        animation: none;
+    }
+}
